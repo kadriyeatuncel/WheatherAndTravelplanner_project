@@ -15,17 +15,21 @@ def get_live_weather():
     """Fetches real-time Munich weather, humidity, and wind."""
     # Munich Coordinates
     lat, lon = 48.1351, 11.5820 
-    url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Europe%2FBerlin"
+    weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Europe%2FBerlin"
+    aqi_url = f"https://air-quality-api.open-meteo.com/v1/air-quality?latitude={lat}&longitude={lon}&current=european_aqi"
     
     try:
-        response = requests.get(url)
-        data = response.json()["current"]
+        weather_response = requests.get(weather_url)
+        aqi_response = requests.get(aqi_url)
+        weather_data = weather_response.json()["current"]
+        aqi_data = aqi_response.json()["current"]
         return {
-            "temp": round(data["temperature_2m"]),
-            "humidity": data["relative_humidity_2m"],
-            "wind": round(data["wind_speed_10m"]),
-            "code": data["weather_code"],
-            "desc": WEATHER_CODES.get(data["weather_code"], "Cloudy")
+            "temp": round(weather_data["temperature_2m"]),
+            "humidity": weather_data["relative_humidity_2m"],
+            "wind": round(weather_data["wind_speed_10m"]),
+            "code": weather_data["weather_code"],
+            "desc": WEATHER_CODES.get(weather_data["weather_code"], "Cloudy"),
+            "aqi_status": aqi_data["european_aqi"]
         }
     except Exception as e:
         print(f"Weather Error: {e}")
@@ -34,7 +38,7 @@ def get_live_weather():
 def generate_todos(weather, user_info):
     tasks = ["Start your day with a fresh Bavarian Brezel! 🥨"]
     
-    # Weather & Wind Logic
+    # Weather & Wind& Air Quality Logic
     if weather['wind'] > 25:
         tasks.append("Warning: High winds! Avoid high viewpoints and park trees 🌬️")
     
@@ -44,6 +48,12 @@ def generate_todos(weather, user_info):
         tasks.append("Warm weather: Visit the English Garden and watch the Eisbach surfers 🏄")
     else:
         tasks.append("Walk through Marienplatz and watch the Glockenspiel performance 🏰")
+
+    if weather['aqi_status'] <= 40:
+             tasks.append("Good Air Quality:Perfect for a walk! 🌿")
+    
+    else:
+            tasks.append("Bad Air Quality: Limit outdoor activities 🚫")
 
     # Disability Logic
     if user_info.get('has_disability') == 'yes':
