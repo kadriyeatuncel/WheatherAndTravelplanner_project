@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunichToGo - Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='wireframe.css') }}">
+</head>
+
+<body>
+  <header>
+    <div class="home" id="home">
+      <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" width="100">
+      
+      <h1>MunichToGo: Weather, paths, and plans</h1>
+
+      <div class="topnav">
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#contact">Contact</a>
+      </div>      
+    </div> 
+  </header>
+   
+<section class="profile" id="profile">
+    <h1 class="profile_title">All in one...</h1>
+
+
+    <div class="box-container">
+  <div class="box box-1">
+    <div class="overlay-text">Solo Day?</div>
+  </div>
+  
+  <div class="box box-2">
+    <div class="overlay-text">Family & Friends?</div>
+  </div>
+
+  <div class="box box-3">
+    <div class="overlay-text">Special Needs?</div>
+  </div>
+</div>
+
+
+    <div style="text-align: center; margin-top: 40px; padding-bottom: 50px;">
+        <a href="/planner-form" style="text-decoration: none;">
+            <button type="button" style="
+                background-color: #ffcc00; 
+                color: white; 
+                padding: 15px 40px; 
+                font-size: 20px; 
+                border: none; 
+                border-radius: 50px; 
+                cursor: pointer;
+                font-weight: bold;">
+                CREATE MY MUNICH PLAN 🥨
+            </button>
+        </a>
+    </div>
+</section>
+  
+  <section class="contact" id="contact">
+    <h1>Contact me</h1>  
+    <form action="" method="get">
+      <label for="name">Your name:</label><br>
+      <input type="text" name="name" id="name"><br>
+      <label for="email">Your email:</label><br>
+      <input type="email" name="email" id="email"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+</body>
+</html>
