@@ -64,7 +64,7 @@ def generate_todos(weather, user_info):
 
     # Dog Friendly Logic
     if user_info.get('has_dog') == 'yes':
-        tasks.append("Dog Friendly: Take a long walk in the Westpark – it's huge and dog-friendly 🐕")
+        tasks.append("Dog Friendly: Take a long walk in the Olympiapark – it's huge and dog-friendly 🐕")
         tasks.append("Note: Most Munich Beer Gardens welcome dogs with open arms! 🐾")
 
     # Car & Child Logic
@@ -91,7 +91,7 @@ def generate():
 @app.route('/planner-form')
 
 def planner_form():
-    # Bu satır seni asıl formun olduğu o temiz index sayfasına götürür
+    # Planner form route to display the form for user input
     return render_template('planner.html')
 
 

@@ -10,9 +10,9 @@
 <body>
   <header>
     <div class="home" id="home">
-      <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" width="100">
+      <img src="{{ url_for('static', filename='images/logo2.jpg') }}" alt="Logo" width="100">
       
-      <h1>🥨MunichtoGo🥨</h1>
+      <h1>Weather, paths, and plans: All in one...</h1>
 
       <div class="topnav">
         <a href="#home">Home</a>
@@ -22,9 +22,7 @@
     </div> 
   </header>
    
-<section class="profile" id="profile">
-    <h1 class="profile_title">Weather, paths, and plans: All in one...</h1>
-
+<section class="profile" id="profile">  
 
     <div class="box-container">
   <div class="box box-1">
@@ -57,7 +55,40 @@
         </a>
     </div>
 </section>
-  
+<section class="top-places">
+    <h2 class="section-title">🌟Top 3 Places in Munich Today 🌟</h2>
+    <div class="places-container">
+        <div class="place-card">
+            <div class="place-img" style="background-image: url('static/images/MP.jpg');">
+                <span class="rank">🌟1</span>
+            </div>
+            <div class="place-info">
+                <h3>Marienplatz</h3>                
+                <p>The heart of Munich with the famous Rathaus-Glockenspiel.</p>                
+            </div>
+        </div>
+
+        <div class="place-card">
+            <div class="place-img" style="background-image: url('static/images/EG.jpg');">
+                <span class="rank">🌟2</span>
+            </div>
+            <div class="place-info">
+                <h3>English Garden</h3>
+                <p>One of the world's largest urban parks, perfect for a walk.</p>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <div class="place-img" style="background-image: url('static/images/OP.jpg');">
+                <span class="rank">🌟3</span>
+            </div>
+            <div class="place-info">
+                <h3>Olympiapark</h3>
+                <p>Stunning architecture and great views over the city.</p>
+            </div>
+        </div>
+    </div>
+</section>  
   <section class="contact" id="contact">
     <h1>Contact me</h1>  
     <form action="" method="get">
@@ -67,6 +98,7 @@
       <input type="email" name="email" id="email"><br>
       <input type="submit" value="Submit">
     </form>
+    
   </section>
 
 </body>
