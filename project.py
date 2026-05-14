@@ -50,7 +50,7 @@ def generate_todos(weather, user_info):
         tasks.append("Walk through Marienplatz and watch the Glockenspiel performance 🏰")
 
     if weather['aqi_status'] <= 40:
-             tasks.append("Good Air Quality:Perfect for a walk! 🌿")
+             tasks.append("Good Air Quality:Perfect for a walk in Englischer Garten! 🌿")
     
     else:
             tasks.append("Bad Air Quality: Limit outdoor activities 🚫")
