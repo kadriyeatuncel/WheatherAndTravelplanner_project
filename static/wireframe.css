@@ -78,7 +78,7 @@ header {
     position: relative;
     width: 280px;
     height: 280px;
-    border: 4px solid #ffae00; 
+    border: 8px solid #ffcc00; 
     border-radius: 50%;
     overflow: hidden;
     transition: transform 0.3s ease;

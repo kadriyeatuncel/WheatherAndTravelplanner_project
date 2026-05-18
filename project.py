@@ -67,10 +67,11 @@ def generate_todos(weather, user_info):
         tasks.append("Dog Friendly: Take a long walk in the Olympiapark – it's huge and dog-friendly 🐕")
         tasks.append("Note: Most Munich Beer Gardens welcome dogs with open arms! 🐾")
 
-    # Car & Child Logic
+    # Car Logic
     if user_info.get('has_car') == 'yes':
         tasks.append("Car Tip: Use 'Park & Ride' lots to save money and avoid city traffic 🚗")
-    
+        
+    #  Child Logic
     if user_info.get('has_child') == 'yes':
         tasks.append("With Kids: Visit the Toy Museum or the Hellabrunn Zoo 🦒")
 
